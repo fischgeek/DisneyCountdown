@@ -1,0 +1,54 @@
+<html>
+  <head>
+      <title>Countdown</title>
+      <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+      <script src="jquery-3.2.0.min.js"></script>
+      <script src="moment.min.js"></script>
+      <script src="countdown.min.js"></script>
+      <script src="jquery.countdown.min.js"></script>
+      <script src="flipclock.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">     
+      <link rel="stylesheet" type="text/css" href="flipclock.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--Apple-->
+      <link rel="apple-touch-icon" href="apple-touch-icon.png">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      
+      <script type="text/javascript">
+          $(document).ready(function() {
+              $('#text').countdown('2017/11/24', function(event) {
+                  $(this).html(event.strftime('%D days<br />%H hours<br />%M minutes<br />%S seconds'));
+                });
+          });
+      </script>
+      <script type="text/javascript">
+		var clock;
+		
+		$(document).ready(function() {
+            var currentDate = new Date();
+            var futureDate  = new Date("November 24, 2017");
+            var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+            clock = $('.clock').FlipClock(diff, {
+                clockFace: 'DailyCounter',
+                countdown: true
+            });
+
+		});
+	</script>
+  </head>
+  <body>
+      <div id="contain">
+      <div class="clock" style="margin:2em;"></div>
+        <div class="message"></div>
+        </div>
+      <!--<div id='container'>
+          
+          <div id='innerContainer'>
+            <div id='text'>Hello</div>
+            <div id='daysUntil'>days until<br />Disney</div>
+          </div>
+      </div>-->
+  </body>
+</html>

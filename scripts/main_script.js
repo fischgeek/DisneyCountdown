@@ -1,8 +1,10 @@
 $(document).ready(function () {
-	if (!window.navigator.standalone == true) {
-		$('#instructions').show();
-		$('#innerContainer').hide();
-	}
+	// if (!window.navigator.standalone == true) {
+	// 	$('#instructions').show();
+	// 	$('#innerContainer').hide();
+	// }
+	console.log(getURLParameter("date"))
+	
 	var counterPosition = 7
 	var imageBank = 42
 	var seqNo = Math.floor(Math.random() * imageBank)
@@ -15,6 +17,7 @@ $(document).ready(function () {
 	$('#countdown').on('touchend', function () {
 		counterPosition = positionCounter(counterPosition + 1)
 	})
+
 	$('body').swipe({
 		swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
 			if (direction == "left") {
@@ -106,5 +109,14 @@ $(document).ready(function () {
 				break;
 		}
 		return posNumber
+	}
+
+	function getURLParameter(name) {
+		var x = (new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [""])[1];
+		if (x) {
+			return decodeURIComponent(x.replace(/\+/g, '%20')) || undefined;
+		} else {
+			return undefined;
+		}
 	}
 });

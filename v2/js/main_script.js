@@ -1,6 +1,6 @@
 $(document).ready(function () {
-	// var debug = false
-	var debug = true
+	var debug = false
+	// var debug = true
 	var tdate;
 	var counterPosition = 7
 	var imageBank = 65
@@ -33,13 +33,21 @@ $(document).ready(function () {
 		}
 	}
 
-	$('#disney').on('touchend click', function () {
+	$('#disney').on('touchend', function () {
 		var ran = Math.floor(Math.random() * Math.floor(imageBank));
+		ran = ran == 0 ? 1 : ran
+		ran = ran == seqNo ? seqNo + 1 : ran
+		while (ran == seqNo) {
+			var ran2 = Math.floor(Math.random() * Math.floor(imageBank));
+			ran2 = ran2 == 0 ? 1 : ran2
+			ran2 = ran2 == seqNo ? seqNo + 1 : ran2
+			ran = ran2
+		}
 		console.log(ran)
-		switchImage(ran, imageBank, "random")
+		seqNo = switchImage(ran, imageBank, "random")
 	})
 	
-	$('#done-button').on('touchend click', function () {
+	$('#done-button').on('touchend', function () {
 		var x = $('#date-picker').val()
 		Cookies.set('disney-date', x, { expires: 365 })
 		tdate = new moment(x, "YYYY-MM-DD")
@@ -52,7 +60,8 @@ $(document).ready(function () {
 	})
 
 	var timer
-	$('#countdown').on('touchstart mousedown', function () {
+	$('#countdown').on('touchstart', function () {
+		console.log('start timer')
 		timer = setTimeout(function () {
 			$('#container').hide()
 			$('#date-picker-container').show()
@@ -62,7 +71,8 @@ $(document).ready(function () {
 				$('#date-picker').val(new moment().format('YYYY-MM-DD'))
 			}
 		}, 2000)
-	}).on('touchend mouseleave', function () {
+	}).on('touchend', function () {
+		console.log('clear timer')
 		clearTimeout(timer)
 	})
 
@@ -81,7 +91,7 @@ $(document).ready(function () {
 				seqNo = switchImage(seqNo, imageBank, direction)
 				counterPosition = positionCounter(counterPosition)
 			}
-		}
+		}, threshold: 200
 	})
 
 	function updateCounter() {
@@ -94,12 +104,10 @@ $(document).ready(function () {
 		imgNum = (imgNum == imageBank ? 1 : imgNum)
 		imgNum = imgNum > highest ? 1 : imgNum
 		while (excludes.includes(imgNum)) {
-			if (dir == "left") {
+			if (dir == "left" || "random") {
 				imgNum++
 			} else if (dir == "right") {
 				imgNum--
-			} else if (dir == "random") {
-				imgNum = 1
 			}
 		}
 		$('#disney-image').attr('src', '../images/' + imgNum + '.jpg')

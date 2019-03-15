@@ -3,49 +3,57 @@
     src: url('../wds011402.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
         url('../wds011402.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
+html,
+body {
+  position: fixed;
+  overflow: hidden;
+}
+
 html {
-    background: black;
+    background: #2b5ed4;
 }
 body {
     margin: 0;
-    font-family: 'disney' !important;
-    background: url('../images/1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     width: 100%;
     height: 100%;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
 }
-#instructions {
+#instructions-container {
     display: none;
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+#instructions-container img {
     width: 100%;
 }
 
 #innerContainer {
     color: white;
-    /* padding-left: 20px;
-    padding-top: 30px; */
-    /* border: 1px solid; */
     padding: 5px;
-    /* text-align: center; */
     width: 95%;
     position: absolute;
     height: 165px;
 }
 
+#disney {
+    font-size: 50px !important;
+    font-family: 'disney' !important;
+}
+
 .base {
     color: white;
-    /* position: absolute; */
-    /* text-align: center; */
     width: 100%;
 }
 
 #countdown {
     font-size: 100px;
     line-height: 64px;
+    font-family: 'disney' !important;
     bottom: 14%;
 }
 
@@ -61,12 +69,8 @@ body {
 }
 
 #container {
-    /* background: url('images/1.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     width: 100%;
-    height: 100%; */
+    height: 100%;
 }
 
 .top {
@@ -83,4 +87,66 @@ body {
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     color: red;
     font-size: 15px;
+}
+
+#date-picker {
+    font-size: 24px;
+    height: 50px;
+    min-width: 70%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
+    top: -17px;
+}
+
+#date-picker-container {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top:40%;
+    padding: 20px;
+}
+
+#date-picker-container p {
+    font-family: 'disney' !important;
+    font-size: 70px;
+    margin: 0;
+    color: white;
+}
+
+#disney-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+#done-button {
+    display: inline-block;
+    width: 20%;
+    height: 50px;
+    background: url(../images/ears.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    position: relative;
+    top: -1px;
+    margin-left: 4px;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+#done-button:hover {
+    background-color: #2b5ed4;
+    background: url(../images/ears_white.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid white;
 }

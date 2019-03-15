@@ -6,29 +6,33 @@
 		<script src="scripts/jquery-3.2.0.min.js"></script>
 		<script src="scripts/jquery.touchSwipe.min.js"></script>
 		<script src="scripts/moment.min.js"></script>
-		<script src="scripts/main_script.js?v2oi45678uqwoi32"></script>
+		<script src="scripts/main_script.js?03c61b00"></script>
 		<script src="scripts/js.cookie-2.2.0.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="styles/style.css?v=34534lkfjos">
+		<link rel="stylesheet" type="text/css" href="styles/style.css?v=f0c3f38f">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=stretch">
 		<!--Apple-->
 		<link rel="apple-touch-startup-image" href="launch.png">
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	</head>
 
 	<body>
 		<div id="date-picker-container">
 			<p>Arrival Date</p>
 			<input type="date" id="date-picker" />
+			<input type="button" id="done-button" />
 		</div>
-		<img id="instructions" src="fischmore_add_to_home_screen.jpg" />
+		<div id="instructions-container">
+			<img src="fischmore_add_to_home_screen.jpg" />
+		</div>
 		<div id='container'>
+			<img id="disney-image" src="images/1.jpg" />
 			<div id='innerContainer'>
 				<div id='countdown' class='base countdown'>7</div>
 				<div id='daysUntil' class='base daysuntil'>
-					<span>days left until</span>
-					<br />Disney</div>
+					<span id='static-label'>days left until</span>
+					<br /><span id='disney'>Disney</span></div>
 			</div>
 		</div>
 		

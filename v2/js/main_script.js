@@ -1,9 +1,9 @@
 $(document).ready(function () {
 	var debug = false
-	// var debug = true
+	//var debug = true
 	var tdate;
 	var counterPosition = 7
-	var imageBank = 65
+	var imageBank = 81
 	var seqNo = Math.floor(Math.random() * imageBank)
 	var excludes = [43]
 	var installed = window.navigator.standalone
@@ -17,7 +17,7 @@ $(document).ready(function () {
 		$('#container').hide()
 		$('#date-picker-container').hide()
 	} else {
-		installed = true;
+		$('#instructions-container').hide()
 		tdate = Cookies.get('disney-date')
 		tdate = new moment(tdate, "YYYY-MM-DD")
 		if (!tdate.isValid()) {
@@ -70,7 +70,7 @@ $(document).ready(function () {
 			} else {
 				$('#date-picker').val(new moment().format('YYYY-MM-DD'))
 			}
-		}, 2000)
+		}, 1500)
 	}).on('touchend', function () {
 		console.log('clear timer')
 		clearTimeout(timer)
@@ -91,7 +91,7 @@ $(document).ready(function () {
 				seqNo = switchImage(seqNo, imageBank, direction)
 				counterPosition = positionCounter(counterPosition)
 			}
-		}, threshold: 200
+		}, threshold: 150
 	})
 
 	function updateCounter() {
@@ -117,33 +117,43 @@ $(document).ready(function () {
 	function positionCounter(posNumber) {
 		posNumber = posNumber < 0 ? 8 : posNumber
 		posNumber = posNumber > 8 ? 0 : posNumber
+		var spacing = 20
 		switch (posNumber) {
 			case 0:
-				$('#innerContainer').css({ 'top': 5, 'right': '', 'bottom': '', 'left': 5, 'text-align': 'left' })
+				$('#innerContainer').css({ 'top': spacing, 'right': '', 'bottom': '', 'left': spacing, 'text-align': 'left' })
+				$('#static-label').css('float', 'none')
 				break;
 			case 1:
-				$('#innerContainer').css({ 'top': 5, 'right': '', 'bottom': '', 'left': 5, 'text-align': 'center' })
+				$('#innerContainer').css({ 'top': spacing, 'right': '', 'bottom': '', 'left': spacing, 'text-align': 'center' })
+				$('#static-label').css('float', 'none')
 				break;
 			case 2:
-				$('#innerContainer').css({ 'top': 5, 'right': '', 'bottom': '', 'left': 5, 'text-align': 'right' })
+				$('#innerContainer').css({ 'top': spacing, 'right': '', 'bottom': '', 'left': -10, 'text-align': 'right' })
+				$('#static-label').css('float', 'right')
 				break;
 			case 3:
-				$('#innerContainer').css({ 'top': '40%', 'right': '', 'bottom': '', 'left': 5, 'text-align': 'left' })
+				$('#innerContainer').css({ 'top': '40%', 'right': '', 'bottom': '', 'left': spacing, 'text-align': 'left' })
+				$('#static-label').css('float', 'none')
 				break;
 			case 4:
-				$('#innerContainer').css({ 'top': '40%', 'right': '', 'bottom': '', 'left': 5, 'text-align': 'center' })
+				$('#innerContainer').css({ 'top': '40%', 'right': '', 'bottom': '', 'left': spacing, 'text-align': 'center' })
+				$('#static-label').css('float', 'none')
 				break;
 			case 5:
-				$('#innerContainer').css({ 'top': '40%', 'right': '', 'bottom': '', 'left': 5, 'text-align': 'right' })
+				$('#innerContainer').css({ 'top': '40%', 'right': '', 'bottom': '', 'left': -10, 'text-align': 'right' })
+				$('#static-label').css('float', 'right')
 				break;
 			case 6:
-				$('#innerContainer').css({ 'top': '', 'right': '', 'bottom': 5, 'left': 5, 'text-align': 'left' })
+				$('#innerContainer').css({ 'top': '', 'right': '', 'bottom': spacing, 'left': spacing, 'text-align': 'left' })
+				$('#static-label').css('float', 'none')
 				break;
 			case 7:
-				$('#innerContainer').css({ 'top': '', 'right': '', 'bottom': 5, 'left': 5, 'text-align': 'center' })
+				$('#innerContainer').css({ 'top': '', 'right': '', 'bottom': spacing, 'left': spacing, 'text-align': 'center' })
+				$('#static-label').css('float', 'none')
 				break;
 			case 8:
-				$('#innerContainer').css({ 'top': '', 'right': '', 'bottom': 5, 'left': 5, 'text-align': 'right' })
+				$('#innerContainer').css({ 'top': '', 'right': '', 'bottom': spacing, 'left': -10, 'text-align': 'right' })
+				$('#static-label').css('float', 'right')
 				break;
 		}
 		return posNumber

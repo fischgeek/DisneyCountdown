@@ -25,7 +25,7 @@ body {
     -webkit-touch-callout: none;
 }
 #instructions-container {
-    display: none;
+    /* display: none; */
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;

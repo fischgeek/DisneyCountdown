@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	var debug = false
-	//var debug = true
+	var debug = true
 	var tdate;
 	var counterPosition = 7
 	var imageBank = 81
@@ -8,6 +8,8 @@ $(document).ready(function () {
 	var excludes = [43]
 	var installed = window.navigator.standalone
 	var isFirefox = typeof InstallTrigger !== 'undefined'
+	var hideNavigationsTimeout = hideNavTimer()
+	// clearTimeout(hideNavTimer)
 	if (debug) {
 		installed = true
 	}
@@ -94,25 +96,61 @@ $(document).ready(function () {
 		}, threshold: 150
 	})
 
+	$('#left-navigation').on('touchend', function() {
+		showNavigations()
+		seqNo = switchImage(seqNo-1, imageBank, 'left')
+	})
+
+	$('#right-navigation').on('touchend', function() {
+		showNavigations()
+		seqNo = switchImage(seqNo+1, imageBank, 'right')
+	})
+
+	$('#disney-image').on('touchend', function() {
+		showNavigations()
+	})
+
+	function showNavigations() {
+		clearTimeout(hideNavigationsTimeout)
+		$('#left-navigation').css('left', 0)
+		$('#right-navigation').css('right', 0)
+		hideNavigationsTimeout = hideNavTimer()
+	}
+
+	function hideNavigations() {
+		$('#left-navigation').css('left', -80)
+		$('#right-navigation').css('right', -80)
+	}
+
+	function hideNavTimer() {
+		return setTimeout(function(){ hideNavigations(); console.log('hiding') }, 3000)
+	}
+
 	function updateCounter() {
 		var cDate = new moment()
 		var diff = tdate.diff(cDate, 'days')
 		$("#countdown").text(diff + 1)
 	}
 
-	function switchImage(imgNum, highest, dir) {
-		imgNum = (imgNum == imageBank ? 1 : imgNum)
-		imgNum = imgNum > highest ? 1 : imgNum
+	function switchImage(imgNum, dir) {
+		imgNum = imgNum == imageBank ? 1 : imgNum
+		imgNum = imgNum <= 0 ? imageBank : imgNum
 		while (excludes.includes(imgNum)) {
+			imgNum = imgNum == imageBank ? 1 : imgNum
+			imgNum = imgNum <= 0 ? imageBank : imgNum
 			if (dir == "left" || "random") {
-				imgNum++
-			} else if (dir == "right") {
 				imgNum--
+			} else if (dir == "right") {
+				imgNum++
 			}
 		}
-		$('#disney-image').attr('src', '../images/' + imgNum + '.jpg')
+		setImage(imgNum)
 		return imgNum
 	}
+
+	function setImage(n) {
+		$('#disney-image').attr('src', '../images/' + n + '.jpg')
+	} 
 
 	function positionCounter(posNumber) {
 		posNumber = posNumber < 0 ? 8 : posNumber

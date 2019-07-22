@@ -154,3 +154,36 @@ body {
     background-position: center;
     border: 1px solid white;
 }
+
+.navigation {
+    position: absolute;
+    display: block;
+    top: 30%;
+    width: 75px;
+    /* border: 1px solid; */
+    height: 150px;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+}
+
+.navigation:active {
+    box-shadow: none !important;
+}
+
+#left-navigation {
+    left: -80px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background: url(../../assets/left.png);
+    box-shadow: 2px 0px 5px 0px #515151;
+}
+
+#right-navigation {
+    right: -80px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    background: url(../../assets/right.png);
+    box-shadow: -2px 0px 5px 0px #515151;
+}

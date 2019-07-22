@@ -78,24 +78,6 @@ $(document).ready(function () {
 		clearTimeout(timer)
 	})
 
-	$('body').swipe({
-		swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
-			if (installed) {
-				if (direction == "left") {
-					seqNo++
-				} else if (direction == "right") {
-					seqNo--
-				} else if (direction == "up") {
-					counterPosition--
-				} else if (direction == "down") {
-					counterPosition++
-				}
-				seqNo = switchImage(seqNo, imageBank, direction)
-				counterPosition = positionCounter(counterPosition)
-			}
-		}, threshold: 150
-	})
-
 	$('#left-navigation').on('touchend', function() {
 		showNavigations()
 		seqNo = switchImage(seqNo-1, imageBank, 'left')

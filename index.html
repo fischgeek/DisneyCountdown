@@ -6,8 +6,8 @@
 		<script src="js/jquery-3.2.0.min.js"></script>
 		<script src="js/moment.min.js"></script>
 		<script src="js/js.cookie-2.2.0.min.js"></script>
-		<script src="js/main_script.js?v=fc0014d059b1690d1fe225c6ab6508e4"></script>
-		<link rel="stylesheet" type="text/css" href="css/style.css?v=fc0014d059b1690d1fe225c6ab6508e4">
+		<script src="js/main_script.js?v=416d1aa76e5afdb2beed6f42d4a145b9"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=416d1aa76e5afdb2beed6f42d4a145b9">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=stretch">
 		<!--Apple-->
 		<link rel="apple-touch-startup-image" href="assets/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
@@ -26,11 +26,12 @@
 		<div id="date-picker-container">
 			<p>Arrival Date</p>
 			<input type="date" id="date-picker" />
-			<input type="button" id="done-button" />
+			<input type="button" id="done-button" /><br />
+			<span id='reminder'>Remember, you can add this web page to your Home screen and it will function like an app!</span>
 		</div>
-		<div id="instructions-container">
+		<!-- <div id="instructions-container">
 			<img src="assets/fischmore_add_to_home_screen.jpg" />
-		</div>
+		</div> -->
 		<div id='container'>
 			<div id="controls-container">
 					<div class="control-container">
@@ -41,6 +42,9 @@
 					</div>
 					<div class="control-container">
 						<div id="move-control" class="control"></div>
+					</div>
+					<div class="control-container">
+						<div id="refresh-control" class="control"></div>
 					</div>
 			</div>
 			<div id="left-navigation" class="navigation"></div>

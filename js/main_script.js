@@ -1,7 +1,7 @@
 $(document).ready(function () {
 	var debug = false
 	//var debug = true
-	var tdate;
+	var tdate = new moment().format('YYYY-MM-DD')
 	var counterPosition = 7
 	var imageBank = 81
 	var seqNo = Math.floor(Math.random() * imageBank)
@@ -92,15 +92,15 @@ $(document).ready(function () {
 			ran2 = ran2 == seqNo ? seqNo + 1 : ran2
 			ran = ran2
 		}
-		console.log(ran)
 		seqNo = switchImage(ran, imageBank, "random")
 	})
 
 	$('#move-control').on('touchend', function() {
-		console.log('move control')
 		counterPosition = positionCounter()
-		console.log('counterPosition ' + counterPosition)
+	})
 
+	$('#refresh-control').on('touchend', function() {
+		window.location.reload()
 	})
 
 	function showNavigations() {

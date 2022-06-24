@@ -3,9 +3,9 @@ $(document).ready(function () {
 	//var debug = true
 	var tdate = new moment().format('YYYY-MM-DD')
 	var counterPosition = 7
-	var imageBank = 81
+	var imageBank = 92
 	var seqNo = Math.floor(Math.random() * imageBank)
-	var excludes = [43]
+	var excludes = []
 	var installed = window.navigator.standalone
 	var isFirefox = typeof InstallTrigger !== 'undefined'
 	// var hideNavigationsTimeout = hideNavTimer()

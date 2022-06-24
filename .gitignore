@@ -1,3 +1,5 @@
+.vs/
+.vscode/
 disney/images/
 *.DS_Store
 images.tar.gz

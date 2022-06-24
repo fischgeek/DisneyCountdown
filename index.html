@@ -1,30 +1,70 @@
 <html>
 
 	<head>
+		<meta charset="UTF-8">
 		<title>Disney 2019</title>
-		<script src="jquery-3.2.0.min.js"></script>
-		<script src="jquery.touchSwipe.min.js"></script>
-		<script src="main_script.js?v2oi45678uqwoi32"></script>
-		<link rel="stylesheet" type="text/css" href="style.css?v=34534lkfjos">
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=stretch">
+		<script src="js/jquery-3.2.0.min.js"></script>
+		<script src="js/moment.min.js"></script>
+		<script src="js/js.cookie-2.2.0.min.js"></script>
+		<script src="js/main_script.js?v=d1ff182ee5c9efce4019750f70"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css?v=d1ff182ee5c9efce4019750f70">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=stretch">
 		<!--Apple-->
-		<link rel="apple-touch-startup-image" href="launch.png">
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-750x1294.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-1242x2148.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-1536x2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+		<link rel="apple-touch-startup-image" href="assets/splash/launch-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+		<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	</head>
 
 	<body>
-		<img id="instructions" src="fischmore_add_to_home_screen.jpg" />
+		<div id="date-picker-container">
+			<p>Arrival Date</p>
+			<input type="date" id="date-picker" />
+			<input type="button" id="done-button" /><br />
+			<span id='reminder'>Remember, you can add this web page to your Home screen and it will function like an app!</span>
+		</div>
+		<!-- <div id="instructions-container">
+			<img src="assets/fischmore_add_to_home_screen.jpg" />
+		</div> -->
 		<div id='container'>
-			<!-- <p id="imgid">Hello</p> -->
+			<div id="controls-container">
+					<div class="control-container">
+						<div id="calendar-control" class="control"></div>
+					</div>
+					<div class="control-container">
+						<div id="random-control" class="control"></div>
+					</div>
+					<div class="control-container">
+						<div id="move-control" class="control"></div>
+					</div>
+					<div class="control-container">
+						<div id="refresh-control" class="control"></div>
+					</div>
+			</div>
+			<div id="left-navigation" class="navigation"></div>
+			<div id="right-navigation" class="navigation"></div>
+			<img id="disney-image" src="images/1.jpg" />
 			<div id='innerContainer'>
 				<div id='countdown' class='base countdown'>7</div>
 				<div id='daysUntil' class='base daysuntil'>
-					<span>days left until</span>
-					<br />Disney</div>
+					<span id='static-label'>days left until</span>
+					<br /><span id='disney'>Disney</span></div>
 			</div>
 		</div>
+		<script src="js/draggable.js"></script>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71446564-8"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-71446564-8');
+		</script>
 	</body>
-
 </html>
